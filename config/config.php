@@ -9,7 +9,7 @@ $template = 'default';
 
 // Пути к файлам шаблонов (*.tpl)
 define('TemplatePrefix', "../views/{$template}/");
-define('TemplatePostFix', '*.tpl');
+define('TemplatePostFix', '.tpl');
 
 // Пути к файлам шаблонов в вебпространстве(www) это js,css файлы
 define('TemplateWebPath', "/templates/{$template}/");
