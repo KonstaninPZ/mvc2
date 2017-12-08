@@ -3,6 +3,9 @@
  * Контроллер главной страницы
  * 
  */
+// Подключение модели 
+include_once '../models/CategoriesModel.php';
+
 function testAction() {
     echo 'IndexController.php > testAction';
 }
@@ -13,6 +16,8 @@ function testAction() {
  * 
  */
 function indexAction($smarty) {
+    $rsCategories = getAllMainCatsWithChildren();
+    
     $smarty -> assign('pageTitle', 'Главная страница сайта');
     
     // Функция для передачи данных в шаблон а также его загрузки и отработки
