@@ -17,9 +17,9 @@ function testAction() {
  */
 function indexAction($smarty,$link) {
     $rsCategories = getAllMainCatsWithChildren($link);
-    
+ 
     $smarty -> assign('pageTitle', 'Главная страница сайта');
-    
+    $smarty -> assign('rsCategories', $rsCategories);
     // Функция для передачи данных в шаблон а также его загрузки и отработки
     loadTemplate($smarty, 'header');
     loadTemplate($smarty, 'index');
