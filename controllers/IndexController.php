@@ -15,8 +15,8 @@ function testAction() {
  * 
  * 
  */
-function indexAction($smarty) {
-    $rsCategories = getAllMainCatsWithChildren();
+function indexAction($smarty,$link) {
+    $rsCategories = getAllMainCatsWithChildren($link);
     
     $smarty -> assign('pageTitle', 'Главная страница сайта');
     

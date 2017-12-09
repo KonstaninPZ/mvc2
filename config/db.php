@@ -4,22 +4,25 @@
  * Инициализация подключения к БД
  */
 
-$dblocation = "127.0.0.1";
-$dbname = "myshop";
-$dbuser = "root";
-$dbpasswd = "fakultet";
-
 // соединяемся с БД
-$db = mysql_connect($dblocation, $dbuser, $dbpasswd);
-
-if(!$db){
-    echo 'Ошибка доступа к MySQL';
-    exit();
+function connectToDB() {
+    $data_connect = array(
+                        'dblocation' => "127.0.0.1",
+                        'dbname' => "myshop",
+                        'dbuser' => "root",
+                        'dbpasswd' => "fakultet",
+                        ); 
+    $db = new mysqli($data_connect['dblocation'], $data_connect['dbuser'],
+                    $data_connect['dbpasswd'],$data_connect['dbname']);
+    if(!$db){
+        echo 'Ошибка доступа к MySQL';
+        exit();
+    } else {
+        return $db;    
+    }
 }
-// Устанавливаем кодировку по умолчанию для текущего соединения
-mysql_set_charset('utf8');
 
-if(!mysql_select_db($dbname, $db)){
-    echo "Ошибка доступа к базе данных: {$dbname}";
-    exit();
-}
+
+
+
+
